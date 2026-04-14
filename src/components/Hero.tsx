@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-brand-bg">
         <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/20 to-brand-bg/60 z-10" />
         <img 
-          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1000" 
+src="/Restaurant.jpg"
           alt="The Green Restaurant Hero" 
           className="w-full h-full object-cover opacity-40"
           referrerPolicy="no-referrer"
