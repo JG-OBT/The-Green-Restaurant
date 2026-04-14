@@ -13,7 +13,13 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] bg-brand-surface rounded-none overflow-hidden relative border border-brand-border">
-              {/* Placeholder for Chef Image */}
+              <div className="aspect-[4/5] bg-brand-surface rounded-none overflow-hidden relative border border-brand-border">
+  <img
+    src="/chef.png"
+    alt="Chef Sasha Matkevich"
+    className="w-full h-full object-cover"
+  />
+</div>
               <div className="absolute inset-0 flex items-center justify-center text-brand-text/10 font-serif text-2xl italic">
                 Chef Sasha Matkevich
               </div>
