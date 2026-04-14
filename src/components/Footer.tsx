@@ -22,10 +22,6 @@ export default function Footer({ onOpenLegal }: FooterProps) {
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-accent hover:text-brand-bg transition-all">
                 <Facebook size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-accent hover:text-brand-bg transition-all">
-                <Twitter size={18} />
-              </a>
             </div>
           </div>
 
