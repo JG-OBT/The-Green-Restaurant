@@ -24,6 +24,7 @@ export default function Footer({ onOpenLegal }: FooterProps) {
                 <Facebook size={18} />
             </a>
           </div>
+            </div>
 
           {/* Contact Column */}
           <div className="space-y-8">
