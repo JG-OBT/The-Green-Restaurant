@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
 
 interface FooterProps {
   onOpenLegal: (type: "privacy" | "terms" | "cookies") => void;
