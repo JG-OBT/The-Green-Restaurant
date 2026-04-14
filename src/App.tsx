@@ -5,9 +5,35 @@ import Menu from "./components/Menu";
 import Gallery from "./components/Gallery";
 import BookingForm from "./components/BookingForm";
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
+import LegalModal from "./components/LegalModal";
+import { useState } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 
+const LEGAL_CONTENT = {
+  privacy: {
+    title: "Privacy Policy",
+    content: `At The Green Restaurant, we are committed to protecting your privacy. This policy outlines how we handle your personal information.\n\nWe collect information when you make a reservation, including your name, email address, and phone number. This data is used solely to manage your booking and provide you with the best possible service.\n\nWe do not sell or share your personal information with third parties for marketing purposes. Your data is stored securely and accessed only by authorized staff.\n\nYou have the right to request access to the personal data we hold about you, or to request that it be deleted. For any privacy-related inquiries, please contact us at info@greenrestaurant.co.uk.`
+  },
+  terms: {
+    title: "Terms of Service",
+    content: `By using our website and making a reservation, you agree to the following terms and conditions.\n\nReservations: We recommend booking in advance. For parties larger than 6, a deposit may be required. Please inform us of any dietary requirements or allergies at the time of booking.\n\nCancellations: We kindly ask for at least 24 hours' notice for cancellations. Failure to show up for a reservation may result in a charge for certain bookings.\n\nConduct: We strive to provide a relaxed and refined atmosphere for all our guests. We reserve the right to refuse service to anyone acting in a disruptive or inappropriate manner.\n\nLiability: The Green Restaurant is not responsible for any loss or damage to personal property while on our premises.`
+  },
+  cookies: {
+    title: "Cookie Policy",
+    content: `This website uses cookies to improve your browsing experience and analyze our traffic.\n\nWhat are cookies? Cookies are small text files that are stored on your device when you visit a website. They help us remember your preferences and understand how you interact with our site.\n\nTypes of cookies we use: We use essential cookies for the website to function correctly, and analytical cookies to help us improve our services. These analytical cookies do not collect personally identifiable information.\n\nManaging cookies: You can choose to accept or decline cookies through our cookie banner or by adjusting your browser settings. Declining cookies may affect the functionality of certain parts of the website.`
+  }
+};
+
 export default function App() {
+  const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: keyof typeof LEGAL_CONTENT | null }>({
+    isOpen: false,
+    type: null
+  });
+
+  const openLegal = (type: keyof typeof LEGAL_CONTENT) => {
+    setLegalModal({ isOpen: true, type });
+  };
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -87,7 +113,16 @@ export default function App() {
         <BookingForm />
       </main>
 
-      <Footer />
+      <Footer onOpenLegal={openLegal} />
+
+      <LegalModal
+        isOpen={legalModal.isOpen}
+        onClose={() => setLegalModal({ ...legalModal, isOpen: false })}
+        title={legalModal.type ? LEGAL_CONTENT[legalModal.type].title : ""}
+        content={legalModal.type ? LEGAL_CONTENT[legalModal.type].content : ""}
+      />
+
+      <CookieBanner />
 
       {/* Mobile Sticky Reserve Button */}
       <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-3rem)] max-w-sm">

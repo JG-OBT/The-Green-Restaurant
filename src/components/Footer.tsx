@@ -1,7 +1,11 @@
 import { motion } from "motion/react";
 import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from "lucide-react";
 
-export default function Footer() {
+interface FooterProps {
+  onOpenLegal: (type: "privacy" | "terms" | "cookies") => void;
+}
+
+export default function Footer({ onOpenLegal }: FooterProps) {
   return (
     <footer id="contact" className="bg-brand-bg text-brand-text pt-24 pb-12 px-10 border-t border-brand-border">
       <div className="max-w-7xl mx-auto">
@@ -83,9 +87,9 @@ export default function Footer() {
         <div className="pt-12 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] uppercase tracking-[2px] font-medium text-brand-dim">
           <p>© {new Date().getFullYear()} The Green Restaurant. All rights reserved.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-brand-text transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-text transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-brand-text transition-colors">Cookies</a>
+            <button onClick={() => onOpenLegal("privacy")} className="hover:text-brand-text transition-colors">Privacy Policy</button>
+            <button onClick={() => onOpenLegal("terms")} className="hover:text-brand-text transition-colors">Terms of Service</button>
+            <button onClick={() => onOpenLegal("cookies")} className="hover:text-brand-text transition-colors">Cookies</button>
           </div>
         </div>
       </div>
