@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { cn } from "../lib/utils";
 
 const images = [
   { id: 1, title: "Seasonal Dish", category: "Food", span: "col-span-2 row-span-2" },
@@ -54,9 +55,9 @@ export default function Gallery() {
                 </span>
               </div>
               
-              <img 
-                src={`/gallery-${img.id}.jpg`} 
-                alt={img.title} 
+              <img
+                src={new URL(`../assets/gallery-${img.id}.jpg`, import.meta.url).href}
+                alt={img.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
                 referrerPolicy="no-referrer"
               />
@@ -73,5 +74,3 @@ export default function Gallery() {
     </section>
   );
 }
-
-import { cn } from "../lib/utils";
