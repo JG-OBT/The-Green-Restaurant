@@ -1,13 +1,14 @@
 import { motion } from "motion/react";
+import heroBg from "@/assets/hero-bg.jpg";
 
 export default function Hero() {
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Background Placeholder */}
+      {/* Background */}
       <div className="absolute inset-0 bg-brand-bg">
         <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/20 to-brand-bg/60 z-10" />
         <img 
-          src="/hero-bg.jpg" 
+          src={heroBg}
           alt="The Green Restaurant Hero" 
           className="w-full h-full object-cover opacity-40"
           referrerPolicy="no-referrer"
