@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import chefSasha from "@/assets/chef-sasha.png";
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
           >
             <div className="aspect-[4/5] bg-brand-surface rounded-none overflow-hidden relative border border-brand-border">
               <img 
-                src="/chef-sasha.png" 
+                src={chefSasha}
                 alt="Chef Sasha Matkevich" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
